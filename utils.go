@@ -2,13 +2,15 @@ package caster
 
 import (
 	"fmt"
+	"reflect"
 	"strconv"
 	"strings"
 )
 
 func asBool(v interface{}) (bool, bool) {
-	b, e := strconv.ParseBool(fmt.Sprint(v))
-	return b, e == nil
+	s := strings.ToLower(fmt.Sprint(v))
+	ok := s == "true" || s == "false"
+	return s == "true", ok
 }
 
 func asInt64(v interface{}) (int64, bool) {
@@ -29,6 +31,25 @@ func asFloat32(v interface{}) (float32, bool) {
 func asFloat64(v interface{}) (float64, bool) {
 	f, e := strconv.ParseFloat(fmt.Sprint(v), 64)
 	return f, e == nil
+}
+
+func asString(v interface{}) (string, bool) {
+	if reflect.TypeOf(v).Kind() == reflect.String {
+		return reflect.ValueOf(v).String(), true
+	}
+	return "", false
+}
+
+func asSlice(v interface{}) []interface{} {
+	res := make([]interface{}, 0)
+	switch reflect.TypeOf(v).Kind() {
+	case reflect.Slice:
+		s := reflect.ValueOf(v)
+		for i := 0; i < s.Len(); i++ {
+			res = append(res, s.Index(i))
+		}
+	}
+	return res
 }
 
 func taggedError(tags []string, format string, args ...interface{}) error {
