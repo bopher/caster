@@ -46,7 +46,9 @@ func asSlice(v interface{}) []interface{} {
 	case reflect.Slice:
 		s := reflect.ValueOf(v)
 		for i := 0; i < s.Len(); i++ {
-			res = append(res, s.Index(i))
+			if s.Index(i).CanInterface() {
+				res = append(res, s.Index(i).Interface())
+			}
 		}
 	}
 	return res
