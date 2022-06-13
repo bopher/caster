@@ -1,7 +1,7 @@
 package caster
 
 // NewCaster create new caster
-func NewCaster(data interface{}) Caster {
+func NewCaster(data any) Caster {
 	return Caster{
 		data: data,
 	}

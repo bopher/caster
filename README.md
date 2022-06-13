@@ -8,7 +8,7 @@ Create new caster instance from value.
 
 ```go
 // Signature
-NewCaster(data interface{}) Caster
+NewCaster(data any) Caster
 
 // Example
 import "github.com/bopher/caster"
@@ -19,7 +19,7 @@ c := caster.NewCaster(1234)
 
 ```go
 import "github.com/bopher/caster"
-c := caster.NewCaster([]interface{}{"First", true, false})
+c := caster.NewCaster([]any{"First", true, false})
 c.Slice() // ["First", true, false]
 c.BoolSlice(nil) // [true, false]
 c.StringSlice(nil) // ["First"]
@@ -60,15 +60,15 @@ IsNil() bool
 Get raw value.
 
 ```go
-Interface() interface{}
+Interface() any
 ```
 
 ### Slice
 
-Parse data as `[]interface{}`
+Parse data as `[]any`
 
 ```go
-Slice() []interface{}
+Slice() []any
 ```
 
 ### Bool

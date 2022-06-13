@@ -14,7 +14,7 @@ func TestIsNil(t *testing.T) {
 }
 
 func TestSlice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{false, "A", 1.234})
+	c := caster.NewCaster([]any{false, "A", 1.234})
 	if len(c.Slice()) != 3 {
 		t.Fatal("failed")
 	}
@@ -28,7 +28,7 @@ func TestBool(t *testing.T) {
 }
 
 func TestBoolSlice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{false, true, true})
+	c := caster.NewCaster([]any{false, true, true})
 	if c.BoolSlice(nil) == nil {
 		t.Fatal("failed")
 	}
@@ -42,7 +42,7 @@ func TestInt(t *testing.T) {
 }
 
 func TestIntSlice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{4, 5, 6})
+	c := caster.NewCaster([]any{4, 5, 6})
 	if c.IntSlice(nil) == nil {
 		t.Fatal("failed")
 	}
@@ -56,7 +56,7 @@ func TestIn8(t *testing.T) {
 }
 
 func TestInt8Slice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{25, 10, 12})
+	c := caster.NewCaster([]any{25, 10, 12})
 	if c.Int8Slice(nil) == nil {
 		t.Fatal("failed")
 	}
@@ -70,7 +70,7 @@ func TestInt16(t *testing.T) {
 }
 
 func TestInt16Slice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{10, 20, 30})
+	c := caster.NewCaster([]any{10, 20, 30})
 	if c.Int16Slice(nil) == nil {
 		t.Fatal("failed")
 	}
@@ -84,7 +84,7 @@ func TestInt32(t *testing.T) {
 }
 
 func TestInt32Slice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{5, 9, 100})
+	c := caster.NewCaster([]any{5, 9, 100})
 	if c.Int32Slice(nil) == nil {
 		t.Fatal("failed")
 	}
@@ -98,7 +98,7 @@ func TestInt64(t *testing.T) {
 }
 
 func TestInt64Slice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{2131, 55555})
+	c := caster.NewCaster([]any{2131, 55555})
 	if c.Int64Slice(nil) == nil {
 		t.Fatal("failed")
 	}
@@ -112,7 +112,7 @@ func TestUInt(t *testing.T) {
 }
 
 func TestUIntSlice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{100, -20, 30})
+	c := caster.NewCaster([]any{100, -20, 30})
 	if len(c.UIntSlice(nil)) != 2 {
 		t.Fatal("failed")
 	}
@@ -126,7 +126,7 @@ func TestUInt8(t *testing.T) {
 }
 
 func TestUInt8Slice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{100, -20, 300})
+	c := caster.NewCaster([]any{100, -20, 300})
 	if len(c.UInt8Slice(nil)) != 1 {
 		t.Fatal("failed")
 	}
@@ -140,7 +140,7 @@ func TestUInt16(t *testing.T) {
 }
 
 func TestUInt16Slice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{100, -20, 300})
+	c := caster.NewCaster([]any{100, -20, 300})
 	if len(c.UInt16Slice(nil)) != 2 {
 		t.Fatal("failed")
 	}
@@ -154,7 +154,7 @@ func TestUInt32(t *testing.T) {
 }
 
 func TestUInt32Slice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{100, -20, 300})
+	c := caster.NewCaster([]any{100, -20, 300})
 	if len(c.UInt32Slice(nil)) != 2 {
 		t.Fatal("failed")
 	}
@@ -168,7 +168,7 @@ func TestUInt64(t *testing.T) {
 }
 
 func TestUInt64Slice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{-1, -20, 300})
+	c := caster.NewCaster([]any{-1, -20, 300})
 	if len(c.UInt64Slice(nil)) != 1 {
 		t.Fatal("failed")
 	}
@@ -182,7 +182,7 @@ func TestFloat32(t *testing.T) {
 }
 
 func TestFloat32Slice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{2.3, 700, -19.22})
+	c := caster.NewCaster([]any{2.3, 700, -19.22})
 	if len(c.Float32Slice(nil)) != 3 {
 		t.Fatal("failed")
 	}
@@ -196,7 +196,7 @@ func TestFloat64(t *testing.T) {
 }
 
 func TestFloat64Slice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{10, true, 20.11})
+	c := caster.NewCaster([]any{10, true, 20.11})
 	if len(c.Float64Slice(nil)) != 2 {
 		t.Fatal("failed")
 	}
@@ -210,7 +210,7 @@ func TestString(t *testing.T) {
 }
 
 func TestStringSlice(t *testing.T) {
-	c := caster.NewCaster([]interface{}{"John", "Jack", "Jimmy"})
+	c := caster.NewCaster([]any{"John", "Jack", "Jimmy"})
 	if len(c.StringSlice(nil)) != 3 {
 		t.Fatal("failed")
 	}
